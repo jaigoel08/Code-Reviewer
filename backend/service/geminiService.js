@@ -83,10 +83,8 @@ const model = genAI.getGenerativeModel({
 async function generateContent(prompt) {
     try {
         const result = await model.generateContent(prompt);
-        console.log(result.response.text());
         return result.response.text();
     } catch (error) {
-        console.error("Error generating content:", error);
         throw new Error("Failed to generate content");
     }
 }
@@ -97,7 +95,6 @@ async function generateCodeFromPrompt(prompt) {
         const result = await model.generateContent(codePrompt);
         return result.response.text();
     } catch (error) {
-        console.error("Error generating code from prompt:", error);
         throw new Error("Failed to generate code from prompt");
     }
 }
