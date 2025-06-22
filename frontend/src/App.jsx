@@ -32,7 +32,7 @@ function App() {
   async function reviewCode() {
     setLoading(true);
     setLastAction('review');
-    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+    const response = await axios.post(' https://coding-buddy-backend.onrender.com/ai/get-review', { code })
     setReview(response.data)
     setLoading(false);
   }
@@ -41,7 +41,7 @@ function App() {
     setGeneratedCode('');
     setLastAction('generate');
     try {
-      const response = await axios.post('http://localhost:3000/ai/generate-code', { prompt });
+      const response = await axios.post(' https://coding-buddy-backend.onrender.com/ai/generate-code', { prompt });
       setGeneratedCode(response.data);
     } catch (error) {
       setGeneratedCode('// Error generating code.');
@@ -53,10 +53,10 @@ function App() {
     setLastAction('output');
     setOutput("");
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-output', { code });
+      const response = await axios.post(' https://coding-buddy-backend.onrender.com/ai/get-output', { code });
       setOutput(response.data);
     } catch (error) {
-      setOutput('// Error getting output.');
+      setOutput('Error getting output.');
     }
     setLoading(false);
   }
